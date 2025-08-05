@@ -216,8 +216,8 @@ $fileUpload.addEventListener("change", async () => {
     const numColumns = Object.keys(data[0]).length;
     description = `The Pandas DataFrame df has ${data.length} rows and ${numColumns} columns:\n${columnDescription}`;
     
-    // Use a default prompt for uploaded files
-    const systemPrompt = $hypothesisPrompt.value = "You are an expert data analyst. Generate hypotheses that would be valuable to test on this dataset. Each hypothesis should be clear, specific, and testable.";
+    // Use existing prompt or default for uploaded files
+    const systemPrompt = $hypothesisPrompt.value || "You are an expert data analyst. Generate hypotheses that would be valuable to test on this dataset. Each hypothesis should be clear, specific, and testable.";
     
     const body = {
       model: "gpt-4.1-nano",
@@ -279,7 +279,7 @@ $demos.addEventListener("click", async (e) => {
       .join("\n");
     const numColumns = Object.keys(data[0]).length;
     description = `The Pandas DataFrame df has ${data.length} rows and ${numColumns} columns:\n${columnDescription}`;
-    const systemPrompt = $hypothesisPrompt.value = demo.audience;
+    const systemPrompt = $hypothesisPrompt.value || demo.audience;
     const body = {
       model: "gpt-4.1-nano",
       messages: [

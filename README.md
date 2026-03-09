@@ -91,3 +91,6 @@ uvx https://raw.githubusercontent.com/sanand0/staticauth/main/app.py
 ## License
 
 [MIT](LICENSE)
+
+---
+> **This is Demo. contains no confidential data/IP**
